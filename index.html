@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Priyanshu Shayari collection</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+min-height:100vh;
+padding:30px;
+color:white;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+}
+
+header{
+text-align:center;
+margin-bottom:30px;
+}
+
+header h1{
+font-size:40px;
+}
+
+header p{
+opacity:.8;
+margin-top:10px;
+}
+
+.search{
+margin:25px 0;
+}
+
+.search input{
+width:100%;
+padding:15px;
+border:none;
+border-radius:40px;
+font-size:17px;
+outline:none;
+background:rgba(255,255,255,.15);
+color:white;
+backdrop-filter:blur(10px);
+}
+
+.search input::placeholder{
+color:#ddd;
+}
+
+.categories{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:10px;
+margin-bottom:25px;
+}
+
+.categories button{
+padding:10px 20px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+background:#00c6ff;
+color:white;
+font-weight:bold;
+transition:.3s;
+}
+
+.categories button:hover{
+transform:scale(1.08);
+background:#0072ff;
+}
+
+.card{
+background:rgba(255,255,255,.12);
+padding:20px;
+margin-bottom:20px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+box-shadow:0 10px 25px rgba(0,0,0,.3);
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card h3{
+color:#00e5ff;
+margin-bottom:10px;
+}
+
+.card p{
+line-height:1.8;
+font-size:17px;
+}
+
+.bottom{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-top:15px;
+}
+
+.like{
+background:#ff4b5c;
+border:none;
+padding:8px 15px;
+border-radius:20px;
+color:white;
+cursor:pointer;
+}
+
+footer{
+margin-top:40px;
+text-align:center;
+opacity:.7;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<header>
+
+<h1>Priyanshu Shayari Collection 🫶✨</h1>
+
+<p>दिल की बातें... शब्दों में ❤️</p>
+
+</header>
+
+<div class="search">
+
+<input type="text" id="search" placeholder="Search Shayari...">
+
+</div>
+
+<div class="categories">
+
+<div class="categories">
+<button onclick="filterShayari('All')">All</button>
+<button onclick="filterShayari('Love')">Love</button>
+<button onclick="filterShayari('Motivation')">Motivation</button>
+</div>
+
+</div>
+
+<div id="shayariList">
+
+<div class="card" data-category="Love">
+
+<h3>❤️ Love Shayari</h3>
+
+<p>
+
+मधुमक्खी जो बैठे गुल पे खुशबू छोड़ जाती है।, <br>
+कि मधुमक्खी जो बैठे गुल पे खुशबू छोड़ जाती है।, <br>
+तुम्हारी याद मेरे हौसले को तोड़ जाती है।, <br>
+खुशी को बेवफा लोगों का माथा चूमते देखा। , <br>
+खुशी लेकिन वफादारों को तन्हा छोड़ जाती है।
+         💕🫀🫶
+
+
+</p>
+
+<div class="bottom">
+
+<span>Category : Love</span>
+
+
+<button class="like">❤️ Favourite</button>
+</div>
+</div>
+
+</div>
+<div class="card" data-category="Motivation">
+
+
+<h3>🔥 Motivation</h3>
+
+<p>
+
+
+</p>
+
+<div class="bottom">
+
+<span>Category : Motivation</span>
+
+<button class="like">❤️ Favourite</button>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+
+Made with ❤️ by You
+
+</footer>
+
+</div>
+
+<script>
+
+const search=document.getElementById("search");
+
+search.addEventListener("keyup",function(){
+
+let value=search.value.toLowerCase();
+
+let cards=document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+
+card.style.display=card.innerText.toLowerCase().includes(value)
+?"block":"none";
+
+});
+
+});
+
+document.querySelectorAll(".like").forEach(btn=>{
+
+btn.onclick=function(){
+
+if(btn.innerHTML=="❤️ Favourite"){
+
+btn.innerHTML="💖 Added";
+
+btn.style.background="green";
+
+}else{
+
+btn.innerHTML="❤️ Favourite";
+
+btn.style.background="#ff4b5c";
+
+}
+
+}
+
+});
+
+function filterShayari(category) {
+
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(function(card) {
+
+        if (category === "All" || card.dataset.category === category) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+
+    });
+
+}
+
+
+
+</script>
+<script>
+    const search = document.getElementById("search");
+
+search.addEventListener("keyup", function () {
+
+    let value = search.value.toLowerCase();
+
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(function(card){
+
+        if(card.innerText.toLowerCase().includes(value)){
+            card.style.display = "block";
+        }else{
+            card.style.display = "none";
+        }
+
+    });
+
+});
+</script>
+
+</body>
+</html>
