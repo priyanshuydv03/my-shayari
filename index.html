@@ -116,6 +116,16 @@ margin-bottom:10px;
 line-height:1.8;
 font-size:17px;
 }
+    .shayari-text{
+    max-height:5.4em;      /* Show about 3 lines */
+    overflow:hidden;
+    line-height:1.8em;
+    transition:max-height .4s ease;
+}
+
+.shayari-text.show{
+    max-height:5000px;
+}
 
 .bottom{
 display:flex;
@@ -297,7 +307,7 @@ APNE KAMARE KI DEEWAR KO,<br>
 
 <h3>❤️ Nazm</h3>
 
-<p>
+<p class="shayari-text">
     कि तारीख 22 दिसंबर 2019 रात 12:28 की बात है। <br>
     मेरे ज़हन में छपी है अब तक कुछ ऐसी वारदात है।<br>
     आज ना जाने क्या था कि दो जाम में ही तेरी याद के बादल छा गए। <br>
@@ -347,15 +357,14 @@ APNE KAMARE KI DEEWAR KO,<br>
 
 </p>
 
-<div class="bottom">
-
-<span>Category : Nazm✨</span>
-
-
-<button class="like">❤️ Favourite</button>
-    <button class="read-btn" onclick="toggleShayari(this)">
-    <span>📖 Read More</span>
+<button class="read-btn" onclick="toggleShayari(this)">
+    📖 Read More
 </button>
+
+<div class="bottom">
+    <span>Category : Nazm✨</span>
+    <button class="like">❤️ Favourite</button>
+</div>
 </div>
 </div>
 
@@ -427,42 +436,22 @@ function filterShayari(category) {
     });
 
 }
-
-
-
-</script>
-<script>
-    const search = document.getElementById("search");
-
-search.addEventListener("keyup", function () {
-
-    let value = search.value.toLowerCase();
-
-    let cards = document.querySelectorAll(".card");
-
-    cards.forEach(function(card){
-
-        if(card.innerText.toLowerCase().includes(value)){
-            card.style.display = "block";
-        }else{
-            card.style.display = "none";
-        }
-
-    });
-
-});
     function toggleShayari(button) {
+
     const text = button.previousElementSibling;
 
     text.classList.toggle("show");
 
-    if (text.classList.contains("show")) {
-        button.innerHTML = "📕 Read Less";
-    } else {
-        button.innerHTML = "📖 Read More";
-    }
+    button.innerHTML = text.classList.contains("show")
+        ? "📕 Read Less"
+        : "📖 Read More";
+
 }
+
+
+
 </script>
+
 
 </body>
 </html>
