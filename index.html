@@ -128,10 +128,12 @@ font-size:17px;
 }
 
 .bottom{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-top:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:15px;
+    flex-wrap:wrap;
+    gap:10px;
 }
 
 .like{
@@ -254,10 +256,8 @@ opacity:.7;
     <div class="card" data-category="Love">
 
 <h3>❤️ Love Shayari</h3>
-
+ <h2>It is your birthday." </h2>
 <p>
-    <h2>It is your birthday." </h2>
-
 AAJ PHONE NAHI AAYA AGAR,<br>
 BURA BHALA BOLENGE PYAR KO,<br>
 YE BAAT NA JAANE KYU BATA RAHE THE,<br>
@@ -357,9 +357,11 @@ APNE KAMARE KI DEEWAR KO,<br>
 
 </p>
 
-<button class="read-btn" onclick="toggleShayari(this)">
-    📖 Read More
-</button>
+<div class="actions">
+    <button class="read-btn" onclick="toggleShayari(this)">
+        📖 Read More
+    </button>
+</div>
 
 <div class="bottom">
     <span>Category : Nazm✨</span>
