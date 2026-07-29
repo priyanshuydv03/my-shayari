@@ -168,6 +168,11 @@ opacity:.7;
     position: relative;
     overflow: hidden;
 }
+    .actions{
+    margin:15px 0;
+    display:flex;
+    justify-content:center;
+}
 
 .read-btn::before {
     content: "";
@@ -367,8 +372,7 @@ APNE KAMARE KI DEEWAR KO,<br>
     <span>Category : Nazm✨</span>
     <button class="like">❤️ Favourite</button>
 </div>
-</div>
-</div>
+
 
 </div>
 
@@ -440,7 +444,8 @@ function filterShayari(category) {
 }
     function toggleShayari(button) {
 
-    const text = button.previousElementSibling;
+    const card = button.closest(".card");
+const text = card.querySelector(".shayari-text");
 
     text.classList.toggle("show");
 
